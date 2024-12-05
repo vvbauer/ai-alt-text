@@ -28,19 +28,10 @@ app.add_middleware(
 )
 
 
-def encode_image(image_path):
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
-
-
 def get_answer_from_gpt(image_url, context, its_a_file=False):
     load_dotenv()
     api_key = os.getenv("API_key")
     client = OpenAI(api_key=api_key)
-
-    if its_a_file:
-        base64_image = encode_image(image_url)
-        image_url = f"data:image/jpeg;base64,{base64_image}"
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
