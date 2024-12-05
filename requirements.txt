@@ -1,0 +1,6 @@
+uvicorn==0.32.1
+python-dotenv==1.0.1
+openai==1.55.2
+fastapi==0.115.5
+urllib3==1.26.6
+python-multipart==0.0.17
